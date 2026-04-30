@@ -90,7 +90,13 @@ export async function initPageSizesAssetSource(cesdk: CreativeEditorSDK) {
   // Demo assets (templates, images)
   await cesdk.addPlugin(
     new DemoAssetSources({
-      include: ['ly.img.image.*', 'ly.img.templates.*']
+      include: [
+        'ly.img.image.*',
+        'ly.img.templates.blank.*',
+        'ly.img.templates.presentation.*',
+        'ly.img.templates.print.*',
+        'ly.img.templates.social.*'
+      ]
     })
   );
 
