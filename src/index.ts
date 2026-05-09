@@ -1,8 +1,8 @@
 /**
  * CE.SDK Page Sizes Editor Starterkit - Main Entry Point
  *
- * A design editor with custom page size presets and a prominent dock button
- * for easy access to page resize functionality.
+ * A design editor with a custom dock button that opens the built-in
+ * page resize panel, allowing users to change page dimensions.
  *
  * @see https://img.ly/docs/cesdk/js/getting-started/
  */
@@ -17,13 +17,12 @@ import { resolveAssetPath } from './imgly/resolveAssetPath';
 // ============================================================================
 
 const config = {
-  userId: 'starterkit-page-sizes-asset-source-user'
+  userId: 'starterkit-page-sizes-asset-source-user',
 
-  // Local assets
-  // baseURL: `/assets/`,
+  // IMG.LY CDN (for quick testing only, NOT recommended for production)
 
-  // License key (required for production)
-  // license: 'YOUR_LICENSE_KEY',
+  // Local assets for development
+
 };
 
 // ============================================================================
@@ -35,7 +34,6 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // Debug access (remove in production)
     (window as any).cesdk = cesdk;
 
-    // Initialize the editor with page sizes functionality
     await initPageSizesAssetSource(cesdk);
     // ============================================================================
     // Scene Loading
@@ -43,6 +41,8 @@ CreativeEditorSDK.create('#cesdk_container', config)
 
     // Load the page sizes scene with pre-designed content
     await cesdk.loadFromURL(resolveAssetPath('/assets/page-sizes.scene'));
+
+    cesdk.ui.openPanel('//ly.img.panel/inspector/pageResize');
   })
   .catch((error) => {
     // eslint-disable-next-line no-console
