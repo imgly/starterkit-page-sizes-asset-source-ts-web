@@ -40,7 +40,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // ============================================================================
 
     // Load the page sizes scene with pre-designed content
-    await cesdk.loadFromURL(resolveAssetPath('/assets/page-sizes.scene'));
+    await cesdk.load(resolveAssetPath('/assets/page-sizes.scene'));
 
     cesdk.ui.openPanel('//ly.img.panel/inspector/pageResize');
   })
