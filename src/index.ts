@@ -4,13 +4,14 @@
  * A design editor with a custom dock button that opens the built-in
  * page resize panel, allowing users to change page dimensions.
  *
- * @see https://img.ly/docs/cesdk/js/getting-started/
+ * @see https://img.ly/docs/cesdk/js/get-started/overview-e18f40/
  */
 
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initPageSizesAssetSource } from './imgly';
 import { resolveAssetPath } from './imgly/resolveAssetPath';
+
 
 // ============================================================================
 // Configuration
@@ -40,7 +41,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // ============================================================================
 
     // Load the page sizes scene with pre-designed content
-    await cesdk.loadFromURL(resolveAssetPath('/assets/page-sizes.scene'));
+    await cesdk.load(resolveAssetPath('/assets/page-sizes.scene'));
 
     cesdk.ui.openPanel('//ly.img.panel/inspector/pageResize');
   })
